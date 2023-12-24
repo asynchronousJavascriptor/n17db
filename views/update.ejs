@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="w-full h-screen dark:bg-zinc-800 bg-zinc-100 p-10">
+    <div>
+      <form action="/update/<%= user._id %>" method="post">
+        <input class="px-4 py-2 bg-zinc-900 outline-none text-zinc-400 rounded-md" type="text" placeholder="username" name="username" value=<%= user.username %>>
+        <input class="px-4 py-2 bg-zinc-900 outline-none text-zinc-400 rounded-md" type="text" placeholder="email" name="email" value=<%= user.email %>>
+        <input class="px-4 py-2 bg-zinc-900 outline-none text-zinc-400 rounded-md" type="number" placeholder="age" name="age" value=<%= user.age %>>
+        <input class="px-4 py-2 bg-yellow-500 text-black rounded-md" type="submit" value="update">
+      </form>
+    </div>
+  </div>
+</body>
+</html>

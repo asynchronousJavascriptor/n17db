@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="w-full h-screen dark:bg-zinc-800 bg-zinc-100 p-10">
+    <h2 class="text-white">logged in user : <%= loggedinuser %></h2>
+    <a class="text-red-500" href="/logout">logout</a>
+    <div class="mt-10 flex items-start gap-4">
+      <% users.forEach(function(user){ %>
+        <div class="w-60 bg-zinc-700 rounded-md p-4 text-white">
+          <h3 class="text-xl"><%= user.username %></h3>
+          <h5 class="text-xs my-2 font-semibold opacity-50"><%= user.email %></h5>
+          <h5 class="text-xs my-2 font-semibold opacity-50"><%= user.age %></h5>
+          <p class="text-xs mt-2 leading-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime beatae eius et?</p>
+          <a href="/like/<%= user._id %>" class="text-blue-500 block mt-2">Like . <span><%= user.likes.length %></span></a>
+          <a class="px-4 py-2 bg-red-500 text-xs rounded-lg mt-3 inline-block capitalize" href="/delete/<%= user._id %>">delete</a>
+          <a class="px-4 py-2 bg-yellow-500 text-xs rounded-lg mt-3 inline-block capitalize text-black" href="/update/<%= user._id %>">update</a>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <script>
+    for(let i  = 1; i<=3; i++){
+        setTimeout(function(){
+            console.log(i);
+        }, 1000*i);
+    }
+  </script>
+</body>
+</html>
